@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot_test.mapper.JobMapper">
+
+    <resultMap id="JobMap" type="com.example.springboot_test.entity.Job">
+        <id     property="id"         column="id"/>
+        <result property="name"       column="name"/>
+        <result property="cron"       column="cron"/>
+        <result property="enabled"    column="enabled"/>
+        <result property="remark"     column="remark"/>
+        <result property="timeoutSec" column="timeout_sec"/>
+        <result property="retry"      column="retry"/>
+        <result property="invokeType" column="invoke_type"/>
+        <result property="beanName"   column="bean_name"/>
+        <result property="className"  column="class_name"/>
+        <result property="methodName" column="method_name"/>
+        <result property="httpUrl"    column="http_url"/>
+        <result property="httpMethod" column="http_method"/>
+        <result property="argsJson"   column="args_json"/>
+        <result property="createdAt"  column="created_at"/>
+        <result property="updatedAt"  column="updated_at"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="JobMap">
+        SELECT * FROM job ORDER BY id
+    </select>
+
+    <select id="selectByCondition" resultMap="JobMap">
+        SELECT * FROM job
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="enabled != null">
+                AND enabled = #{enabled}
+            </if>
+            <if test="invokeType != null and invokeType != ''">
+                AND invoke_type = #{invokeType}
+            </if>
+        </where>
+        ORDER BY created_at DESC
+    </select>
+
+    <select id="selectById" parameterType="string" resultMap="JobMap">
+        SELECT * FROM job WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.example.springboot_test.entity.Job">
+        INSERT INTO job
+        (id, name, cron, enabled, remark, timeout_sec, retry, invoke_type,
+         bean_name, class_name, method_name, http_url, http_method, args_json,
+         created_at, updated_at)
+        VALUES
+            (#{id}, #{name}, #{cron}, #{enabled}, #{remark}, #{timeoutSec}, #{retry}, #{invokeType},
+             #{beanName}, #{className}, #{methodName}, #{httpUrl}, #{httpMethod}, #{argsJson},
+             #{createdAt}, #{updatedAt})
+    </insert>
+
+    <update id="updateById" parameterType="com.example.springboot_test.entity.Job">
+        UPDATE job
+        <set>
+            name = #{name},
+            cron = #{cron},
+            enabled = #{enabled},
+            remark = #{remark},
+            timeout_sec = #{timeoutSec},
+            retry = #{retry},
+            invoke_type = #{invokeType},
+            bean_name = #{beanName},
+            class_name = #{className},
+            method_name = #{methodName},
+            http_url = #{httpUrl},
+            http_method = #{httpMethod},
+            args_json = #{argsJson},
+            updated_at = #{updatedAt}
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="string">
+        DELETE FROM job WHERE id = #{id}
+    </delete>
+
+    <select id="listAllEnabled" parameterType="string">
+        select * FROM job WHERE enabled = 1
+    </select>
+</mapper>
