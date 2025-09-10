@@ -18,5 +18,7 @@
     <modules>
         <module>fina_app_trans</module>
         <module>springboot_test</module>
+        <module>redis</module>
+
     </modules>
 </project>

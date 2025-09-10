@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-//@Service
+@Service
 public class JobService {
     @Autowired
     private Scheduler scheduler;
