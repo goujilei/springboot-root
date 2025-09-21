@@ -2,9 +2,9 @@ server:
   port: 8081
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/my_database?useSSL=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://120.48.4.19:3306/my_database?useSSL=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: gjl123
+    password: gjl
     driver-class-name: com.mysql.cj.jdbc.Driver
   rabbitmq:
     host: 192.144.230.45
@@ -31,6 +31,11 @@ spring:
         quartz:
           scheduler.instanceName: appScheduler
           threadPool.threadCount: 10
+  redis:
+    host: 192.144.230.45   # Redis服务器地址
+    port: 6379        # Redis端口
+    password: redis
+    database: 0       # 默认数据库
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.springboot_test.entity
