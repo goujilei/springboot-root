@@ -37,7 +37,7 @@ public class HelloController {
             return "error";
         }
 
-        return "success_2015";
+        return "success_1745";
 
 /*        if ("0".equals(flag)){
             throw new RuntimeException("模拟异常");
