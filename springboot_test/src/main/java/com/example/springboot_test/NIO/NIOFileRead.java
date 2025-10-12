@@ -1,4 +1,4 @@
-package com.example.springboot_test.NIO;
+package com.example.springboot_test.nio;
 
 import java.io.File;
 import java.io.FileInputStream;

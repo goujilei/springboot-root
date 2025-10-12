@@ -19,6 +19,6 @@
         <module>fina_app_trans</module>
         <module>springboot_test</module>
         <module>redis</module>
-
+        <module>simple-db-framework</module>
     </modules>
 </project>
