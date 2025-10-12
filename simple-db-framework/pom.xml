@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.example</groupId>
-        <artifactId>springboot_root</artifactId>
-        <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
+        <artifactId>springboot-root</artifactId> <!-- ✅ 不是 springboot-root -->
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath> <!-- ✅ 指向 springboot_root/pom.xml -->
     </parent>
 
     <packaging>jar</packaging> <!-- 关键！不是 war 也不是 spring boot 的 fat jar -->
