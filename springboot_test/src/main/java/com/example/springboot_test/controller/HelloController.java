@@ -3,7 +3,6 @@ package com.example.springboot_test.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.example.simpledbframework.DbExecutor;
-import com.example.springboot_test.Dao.UserDao;
 import com.example.springboot_test.service.JobService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +18,8 @@ public class HelloController {
 
     private static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
-    @Autowired
-    private UserDao userDao;
+/*    @Autowired
+    private UserDao userDao;*/
 
     @Autowired
     private DbExecutor dbExecutor;
@@ -37,7 +36,7 @@ public class HelloController {
             return "error";
         }
 
-        return "success_2036";
+        return "success_202510121641";
 
 /*        if ("0".equals(flag)){
             throw new RuntimeException("模拟异常");
