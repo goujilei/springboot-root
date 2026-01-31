@@ -38,4 +38,9 @@ public class CronTask001 {
     public void runAtOneAM1() {
         System.out.println("凌晨1点执行任务");
     }
+
+    public void runAtOneAM2() {
+        System.out.println("凌晨1点执行任务");
+    }
+
 }
