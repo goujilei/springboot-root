@@ -1,6 +1,5 @@
 package com.example.springboot_test.cron;
 
-import com.example.simpledbframework.DbExecutor;
 import com.example.springboot_test.controller.HelloController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +13,8 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class CronTask001 {
 
-    @Autowired
-    private DbExecutor dbExecutor;
+/*    @Autowired
+    private DbExecutor dbExecutor;*/
 
     private static final Logger log = LoggerFactory.getLogger(CronTask001.class);
 
@@ -33,6 +32,10 @@ public class CronTask001 {
     // 每天凌晨1点执行
     // @Scheduled(cron = "0 0 1 * * ?")
     public void runAtOneAM() {
+        System.out.println("凌晨1点执行任务");
+    }
+
+    public void runAtOneAM1() {
         System.out.println("凌晨1点执行任务");
     }
 }
