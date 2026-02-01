@@ -20,12 +20,13 @@ public class CronTask001 {
 
     // 每5秒执行一次
     //@Scheduled(fixedRate = 5000)
-    //@Scheduled(cron = "*/5  * * * * ?")
+    @Scheduled(cron = "*/5  * * * * ?")
     public void runEveryFiveSeconds() {
         log.info("==========开始执行生成生成批量资金文件任务==========");
 
         LocalDateTime now = LocalDateTime.now();
         log.info("任务执行时间：{}", now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        runAtOneAM5();
         log.info("==========执行生成生成批量资金文件任务成功==========");
     }
 
@@ -41,5 +42,17 @@ public class CronTask001 {
 
     public void runAtOneAM2() {
         System.out.println("凌晨1点执行任务");
+    }
+
+    public void runAtOneAM3() {
+        System.out.println("凌晨3点执行任务");
+    }
+
+    public void runAtOneAM4() {
+        System.out.println("凌晨4点执行任务");
+    }
+
+    public void runAtOneAM5() {
+        System.out.println("凌晨5点执行任务");
     }
 }
